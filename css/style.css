@@ -94,11 +94,23 @@ main::-webkit-scrollbar{
 
 }
 
+.start{
+    display: flex;
+    justify-content: center;
+}
+
+.start>button{
+    background-color: #2C3639;
+    color: antiquewhite;
+    line-height: 2rem;
+    width: 4rem;
+    font-size: large;
+    border-style:inset;
+}
+
 .timer-buttons{
     display: flex;
     justify-content: center;
-    
-    
 }
 .timer-buttons>button{
     margin: 1rem;
