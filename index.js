@@ -2,8 +2,15 @@ const sortBreak = 25;
 const normalBreak = 25;
 const longBreak = 25;
 
-$(".start_btn").click(startTimer);
-$(".start_btn").click(playSound);
+
+let clicked=0;
+$(".start_btn").click(()=>{if(clicked===0){
+    startTimer();
+    playSound();
+    clicked=1;
+}
+});
+
 
 
 function startTimer() {
