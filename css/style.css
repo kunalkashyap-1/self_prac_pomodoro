@@ -88,12 +88,19 @@ main::-webkit-scrollbar{
 
 .timer>p{
     font-size: 9rem;
-    
     text-align: center;
     margin: 0%;
 
 }
+@media screen and (max-width:700px){
+    .timer>p{
+        font-size:5rem;
+        text-align:center;
+        margin:0%;
+    }
 
+    
+}
 .start{
     display: flex;
     justify-content: center;
