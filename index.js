@@ -3,6 +3,8 @@ const normalBreak = 25;
 const longBreak = 25;
 
 
+
+
 let clicked = 0;
 $(".start_btn").click(() => {
     if (!clicked) {
@@ -15,22 +17,24 @@ $(".start_btn").click(() => {
 
 
 function startTimer() {
-    let min = sortBreak;
-    let sec = min * 60;
+    let minutes = 10;
+    let seconds = minutes * 60;
     setInterval(mytimer, 1000);
     function mytimer() {
-        let time = min + " : " + (sec % 60);
+        min = ((minutes % 60) < 10 ? "0" + (minutes % 60) : minutes % 60);
+        sec = ((seconds % 60) < 10 ? "0" + (seconds % 60) : seconds % 60);
+        let time = min + " : " + sec;
         if (sec % 60 === 0) {
-            min--;
+            minutes--;
         }
-        sec--;
+        seconds--;
         $("#time").text(time);
     }
 
 }
 
 function playSound() {
-    const audio = new Audio("sounds/lofi.mp3");
+    const audio = new Audio("sounds/fire.mp3");
     audio.play();
 }
 
