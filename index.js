@@ -3,12 +3,13 @@ const normalBreak = 25;
 const longBreak = 25;
 
 
-let clicked=0;
-$(".start_btn").click(()=>{if(clicked===0){
-    startTimer();
-    playSound();
-    clicked=1;
-}
+let clicked = 0;
+$(".start_btn").click(() => {
+    if (!clicked) {
+        startTimer();
+        playSound();
+    }
+    clicked = 1;
 });
 
 
@@ -28,8 +29,8 @@ function startTimer() {
 
 }
 
-function playSound(){
-    const audio=new Audio("sounds/lofi.mp3");
+function playSound() {
+    const audio = new Audio("sounds/lofi.mp3");
     audio.play();
 }
 
