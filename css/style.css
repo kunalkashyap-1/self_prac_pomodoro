@@ -1,3 +1,8 @@
+/* @media screen and (min-width: 700px){
+    /* .navbar>button {    display: none;  }
+    .drop-list{visibility: hidden;}
+} */ 
+
 * {
     outline: none;
     box-sizing: border-box;
@@ -7,6 +12,7 @@ body{
     background-image:url(/css/images/background1.jpg);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     padding: 2rem;
     height: 100vh;
     margin: 0;
@@ -14,8 +20,14 @@ body{
 
 main{
     
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     border-radius: 1rem;
+    height: 93vh;
+    overflow: auto;
+}
+
+main::-webkit-scrollbar{
+    display: none;
 }
 
 .navbar{
@@ -42,9 +54,9 @@ main{
     width:2rem;
 }
 
-/* .title{
-    margin-right: auto;
-} */
+.title{
+    font-size: 2rem;
+}
 
 .dropdown-button>img{
     height:2rem;
@@ -54,19 +66,59 @@ main{
 .dropdown-button{
     margin: 0.5rem;
     height: 2rem;
+    border-style: hidden;
 }
 
 
 .drop-list{
+    position: relative;
+    margin-right: 2rem;
     list-style: none;
-    margin:1rem;
     text-align: end;
-}
-
-.about{
-    padding: 10%;
 }
 
 .visible{
     display: none;
 }
+
+.timer{
+    height: 40vh;
+    margin: 15%;
+}
+
+.timer>p{
+    font-size: 9rem;
+    
+    text-align: center;
+    margin: 0%;
+
+}
+
+.timer-buttons{
+    display: flex;
+    justify-content: center;
+    
+    
+}
+.timer-buttons>button{
+    margin: 1rem;
+    border: 0;
+    border-radius: 0.5rem;
+    line-height: 1.5rem;
+    color: white;
+}
+
+#about{
+    padding: 10%;
+}
+
+#btn1{
+    background-color: #2C3639;
+}
+#btn2{
+    background-color: #3F4E4F;
+}
+#btn3{
+    background-color: #A27B5C;
+}
+
