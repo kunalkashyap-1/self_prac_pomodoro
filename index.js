@@ -30,7 +30,7 @@ function startTimer(key) {
             }
             if (clicked) {
                 clearInterval(interval);
-                alert("The timer is still running are u sure u want to switch");
+                alert("The timer is still running are you sure you want to switch");
                 Timer(curr);
             }
             break;
@@ -43,7 +43,7 @@ function startTimer(key) {
             }
             if (clicked) {
                 clearInterval(interval);
-                alert("The timer is still running are u sure u want to switch");
+                alert("The timer is still running are you sure you want to switch");
                 Timer(curr);
             }
             break;
@@ -56,7 +56,7 @@ function startTimer(key) {
             }
             if (clicked) {
                 clearInterval(interval);
-                alert("The timer is still running are u sure u want to switch");
+                alert("The timer is still running are you sure you want to switch");
                 Timer(curr);
             }
             break;
@@ -125,7 +125,7 @@ function toggle_dropdown() {
 function stop(){
     if(p){
         audio.pause();
-        alert("Timer paused 'Click ok to resume'")
+        alert("Timer paused 'Click OK to resume'")
     }
     audio.play();
     p=1;
