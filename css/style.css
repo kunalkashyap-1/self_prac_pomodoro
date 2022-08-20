@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: url(/css/images/background1.jpg);
+    background-image: url('images/background1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -142,10 +142,10 @@ main::-webkit-scrollbar {
 }
 
 @media only screen and (max-width: 760px) {
-    .timer>p{
-    font-size: 5rem;
-    text-align: center;
-    margin: 0%;
+    .timer>p {
+        font-size: 5rem;
+        text-align: center;
+        margin: 0%;
     }
 
     .timer-buttons>button {
