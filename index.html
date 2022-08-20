@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="css/style.css" />
     <title>Pomodoro</title>
+    <link rel="shortcut icon" href="css/images/favicon.ico" type="image/x-icon">
   </head>
 
   <body>
@@ -28,13 +29,16 @@
         </button>
       </nav>
       <div class="visible drop-list">
+        <span class="links">
+        <!-- <a href="feedback.html">feedback</a> -->
         <a href="#about">About</a>
+      </span>
       </div>
 
       <section class="timer">
         <p id="time">25 : 00</p>
         <span class="start">
-        <button class="start btn" id="btn4" >Start</button>
+        <button class="start btn" id="btn4" onclick="stop()" ><img src="css/images/play.png" alt=""></button>
       </span>
         <div class="timer-buttons">
           <button class="btn" id="btn1">Short Break</button>
