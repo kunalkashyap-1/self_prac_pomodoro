@@ -141,24 +141,7 @@ main::-webkit-scrollbar {
     background-color: #A27B5C;
 }
 
-@media only screen and (max-width: 760px) {
-    .timer>p {
-        font-size: 5rem;
-        text-align: center;
-        margin: 0%;
-    }
-
-    .timer-buttons>button {
-        margin: 0.5rem;
-        border: 0;
-        border-radius: 0.5rem;
-        font-size: 0.7rem;
-        line-height: 1.5rem;
-        color: white;
-    }
-}
-
-@media only screen and (max-width: 460px) {
+@media only screen and (max-width: 1200px) {
     .timer>p {
         font-size: 3.5rem;
         text-align: center;
