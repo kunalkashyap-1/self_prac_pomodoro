@@ -3,10 +3,10 @@ const normalBreak = 50;
 const longBreak = 75;
 let clicked = 0;
 let curr = shortBreak;
-let curr_brk = curr/5;
+let curr_brk = curr / 5;
 const audio = new Audio("sounds/lofi.mp3");
-let count=0;
-let p=0;
+let count = 0;
+let p = 0;
 let interval;
 
 //to find which button is pressed
@@ -26,12 +26,14 @@ function startTimer(key) {
             curr = shortBreak;
             if (!clicked) {
                 $("#time").text(shortBreak + " : 00");
-                
+
             }
             if (clicked) {
-                clearInterval(interval);
-                alert("The timer is still running are you sure you want to switch");
-                Timer(curr);
+
+                if (confirm("The timer is still running are you sure you want to switch") === true) {
+                    clearInterval(interval);
+                    Timer(curr);
+                }
             }
             break;
 
@@ -39,12 +41,14 @@ function startTimer(key) {
             curr = normalBreak;
             if (!clicked) {
                 $("#time").text(normalBreak + " : 00");
-            
+
             }
             if (clicked) {
-                clearInterval(interval);
-                alert("The timer is still running are you sure you want to switch");
-                Timer(curr);
+
+                if (confirm("The timer is still running are you sure you want to switch") == true) {
+                    clearInterval(interval);
+                    Timer(curr);
+                }
             }
             break;
 
@@ -52,12 +56,14 @@ function startTimer(key) {
             curr = longBreak;
             if (!clicked) {
                 $("#time").text(longBreak + " : 00");
-            
+
             }
             if (clicked) {
-                clearInterval(interval);
-                alert("The timer is still running are you sure you want to switch");
-                Timer(curr);
+
+                if (confirm("The timer is still running are you sure you want to switch") == true) {
+                    clearInterval(interval);
+                    Timer(curr);
+                }
             }
             break;
 
@@ -82,7 +88,7 @@ function start(value) {
 
 function brk() {
     alert("You've done it Time to take a break now :D");
-    count=1;
+    count = 1;
     Timer(curr_brk);
 }
 
@@ -90,7 +96,7 @@ function Timer(amt) {
 
     let minutes = amt;
     let seconds = minutes * 60;
-    interval=setInterval(mytimer, 1000);
+    interval = setInterval(mytimer, 1000);
     function mytimer() {
         min = minutes < 10 ? "0" + minutes : minutes;
         sec = ((seconds % 60) < 10 ? "0" + (seconds % 60) : seconds % 60);
@@ -102,18 +108,18 @@ function Timer(amt) {
 
         $("#time").text(time);
 
-        if(seconds==0){
+        if (seconds == 0) {
             clearInterval(interval);
             audio.pause();
-            count===0? brk(): reset();
+            count === 0 ? brk() : reset();
         }
-        
+
     }
 }
 
-function reset(){
+function reset() {
     audio.pause();
-    $("#time").text(curr+" : 00");
+    $("#time").text(curr + " : 00");
 }
 
 function toggle_dropdown() {
@@ -122,11 +128,11 @@ function toggle_dropdown() {
 
 
 
-function stop(){
-    if(p){
+function stop() {
+    if (p) {
         audio.pause();
         alert("Timer paused 'Click OK to resume'")
     }
     audio.play();
-    p=1;
+    p = 1;
 }
