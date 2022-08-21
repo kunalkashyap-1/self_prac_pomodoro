@@ -1,12 +1,16 @@
+//necessary
 const shortBreak = 25;
 const normalBreak = 50;
 const longBreak = 75;
+const audio = new Audio("sounds/lofi.mp3");
+//could have done better
 let clicked = 0;
 let curr = shortBreak;
 let curr_brk = curr / 5;
-const audio = new Audio("sounds/lofi.mp3");
+let curr_time=0;
 let count = 0;
-let p = 0;
+let first=0;
+let p = false;
 let interval;
 
 //to find which button is pressed
@@ -18,7 +22,7 @@ $(".btn").click(function () {
 
 
 
-
+//swutch statement to perform different task according to different buttons 
 function startTimer(key) {
 
     switch (key) {
@@ -69,8 +73,10 @@ function startTimer(key) {
 
         case "btn4":
             if (!clicked) {
-                start(curr);
+                Timer(curr);
+                audio.play();
                 $("#time").text(curr + " : 00");
+                $("#btn4").text("Pause");
             }
             clicked = 1;
             break;
@@ -81,32 +87,34 @@ function startTimer(key) {
     }
 }
 
-function start(value) {
-    Timer(value);
-    audio.play();
-}
 
+//break function
 function brk() {
     alert("You've done it Time to take a break now :D");
     count = 1;
     Timer(curr_brk);
 }
 
+
+//the holy grain of this project THE TIMER
 function Timer(amt) {
 
     let minutes = amt;
     let seconds = minutes * 60;
     interval = setInterval(mytimer, 1000);
     function mytimer() {
-        min = minutes < 10 ? "0" + minutes : minutes;
+        let m=Math.floor(seconds/60);
+        min = (m) < 10 ? "0" + (m) : (m);
         sec = ((seconds % 60) < 10 ? "0" + (seconds % 60) : seconds % 60);
         let time = min + " : " + sec;
+        curr_time=seconds;
         if (sec % 60 === 0) {
             minutes--;
         }
         seconds--;
 
         $("#time").text(time);
+        $("title").text(time + "- Pomodoro");
 
         if (seconds == 0) {
             clearInterval(interval);
@@ -117,22 +125,38 @@ function Timer(amt) {
     }
 }
 
+//after the break function
 function reset() {
     audio.pause();
     $("#time").text(curr + " : 00");
 }
 
-function toggle_dropdown() {
-    $(".drop-list").toggle(".visible");
+
+
+
+//the play and pause button
+function stop() {
+    if(first){
+    if (p) {
+        clearInterval(interval);
+        
+        audio.pause();
+
+        $("#btn4").text("Start");
+    }
+
+    else if(!p){
+        audio.play();
+        Timer((curr_time/60));
+        $("#btn4").text("Pause");
+    }
+}
+first=1;
+    (p===true)?(p=false):(p=true);
 }
 
 
-
-function stop() {
-    if (p) {
-        audio.pause();
-        alert("Timer paused 'Click OK to resume'")
-    }
-    audio.play();
-    p = 1;
+//the dropdown
+function toggle_dropdown() {
+    $(".drop-list").toggle(".visible");
 }

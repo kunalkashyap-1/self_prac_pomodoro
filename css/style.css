@@ -104,12 +104,8 @@ main::-webkit-scrollbar {
     background-color: #DCD7C9;
     height: 2rem;
     width: 4rem;
-}
-
-.start>button>img {
-    height: 1.5rem;
-    width: 1.5rem;
-    align-self: center;
+    line-height: 1.6rem;
+    font-size: larger;
 }
 
 .timer-buttons {
