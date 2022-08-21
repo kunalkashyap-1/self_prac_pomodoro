@@ -34,12 +34,13 @@ function startTimer(key) {
 
             }
             if (clicked) {
-
+                if(p){
                 if (confirm("The timer is still running are you sure you want to switch") === true) {
                     clearInterval(interval);
                     Timer(curr);
                 }
             }
+        }
             break;
 
         case "btn2":
@@ -49,12 +50,13 @@ function startTimer(key) {
 
             }
             if (clicked) {
-
+                if(p){
                 if (confirm("The timer is still running are you sure you want to switch") == true) {
                     clearInterval(interval);
                     Timer(curr);
                 }
             }
+        }
             break;
 
         case "btn3":
@@ -64,12 +66,13 @@ function startTimer(key) {
 
             }
             if (clicked) {
-
+                if(p){
                 if (confirm("The timer is still running are you sure you want to switch") == true) {
                     clearInterval(interval);
                     Timer(curr);
                 }
             }
+        }
             break;
 
         case "btn4":
