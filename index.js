@@ -3,6 +3,7 @@ const shortBreak = 25;
 const normalBreak = 50;
 const longBreak = 75;
 const audio = new Audio("sounds/lofi.mp3");
+const audio1 =new Audio("sounds/alarm.mp3");
 //could have done better
 let clicked = 0;
 let curr = shortBreak;
@@ -90,7 +91,11 @@ function startTimer(key) {
 
 //break function
 function brk() {
-    alert("You've done it Time to take a break now :D");
+    audio1.play();
+    setTimeout(()=>{
+        alert("You've done it Time to take a break now. \n stand up walk around a bit.🙂");
+    },3000);
+    
     count = 1;
     Timer(curr_brk);
 }
