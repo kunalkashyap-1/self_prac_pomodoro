@@ -137,6 +137,8 @@ function Timer(amt) {
 function reset() {
     audio.pause();
     $("#time").text(curr + " : 00");
+    $("title").text(curr + " : 00" + "- Pomodoro");
+    $("#btn4").text("Start");
 }
 
 
