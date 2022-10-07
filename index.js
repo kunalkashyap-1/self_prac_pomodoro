@@ -12,6 +12,7 @@ let curr_time = 0;
 let count = 0;
 let first = 0;
 let p = false;
+let ap = false;
 let interval;
 
 //to find which button is pressed
@@ -81,6 +82,7 @@ function startTimer(key) {
                 audio.play();
                 $("#time").text(curr + " : 00");
                 $("#btn4").text("Pause");
+    $("#fixed_btn").removeClass("visible");
             }
             clicked = 1;
             break;
@@ -106,7 +108,6 @@ function brk() {
 
 //the holy grain of this project THE TIMER
 function Timer(amt) {
-
     let minutes = amt;
     let seconds = minutes * 60;
     interval = setInterval(mytimer, 1000);
@@ -122,7 +123,7 @@ function Timer(amt) {
         seconds--;
 
         $("#time").text(time);
-        $("title").text(time + "- Pomodoro");
+        $("title").text(time + "  Pomodoro");
 
         if (seconds == 0) {
             clearInterval(interval);
@@ -151,19 +152,43 @@ function stop() {
             clearInterval(interval);
 
             audio.pause();
+            $("#btn_img").attr("src","css/images/mute-pngrepo-com.png");
 
             $("#btn4").text("Start");
+            $("#fixed_btn").addClass("visible");
+
         }
 
         else if (!p) {
             audio.play();
+            $("#btn_img").attr("src","css/images/audio-pngrepo-com.png");
+            ap=false;
             Timer((curr_time / 60));
             $("#btn4").text("Pause");
+    $("#fixed_btn").removeClass("visible");
+
         }
     }
     first = 1;
     (p === true) ? (p = false) : (p = true);
 }
+
+
+function mute_btn() {
+        if (ap) {
+            audio.play();
+            $("#btn_img").attr("src","css/images/audio-pngrepo-com.png");
+
+        }
+
+        else if (!ap) {
+            audio.pause();
+            $("#btn_img").attr("src","css/images/mute-pngrepo-com.png");
+
+        }
+    (ap === true) ? (ap = false) : (ap = true);
+}
+
 
 
 //the dropdown

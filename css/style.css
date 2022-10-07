@@ -138,6 +138,21 @@ main::-webkit-scrollbar {
     background-color: #A27B5C;
 }
 
+#fixed_btn{
+    position: fixed;
+    bottom: 6%;
+    right: 4%;
+    background-color: rgb(224, 100, 100);
+    border-radius: 50%;
+}
+
+#btn_img{
+    justify-content: center;
+    height: 2rem;
+    width: 2rem;
+}
+
+
 @media only screen and (max-width: 1080px) {
     .timer>p {
         font-size: 3.5rem;
